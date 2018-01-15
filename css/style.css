@@ -3,28 +3,30 @@ body{
 	margin-top: 0;
 	margin-right: 0;
 	overflow: hidden;
+	font-family: 'Roboto', sans-serif;
+    font-weight: 500;
 }
 .top-hide{
-	position: absolute;
+	position: fixed;
 	background: black;
 	height: 10%;
 	width: 100%;
-	z-index: 1;
+	z-index: 4;
 }
 .top{
-	position: absolute;
+	position: fixed;
 	height: 15%;
 	width: 100%;
 	top: 50;
 	background: black;
 	color: white;
 	transform:skewY(-3deg);
-	z-index: 2;
+	z-index: 5;
 	padding-left: 20px;
-	padding-top: 20px;
+	padding-top: 15px;
 }
 .logo{
-	width: 100%;
+	width: 80px;
 	min-width: 40px;
 }
 .logoimage{
@@ -39,59 +41,161 @@ body{
 	width: 50%;
 	height: 5%;
 	vertical-align: top;
+	transform: skewY(3deg);
 	padding-top: 1%;
 	padding-left: 20px;
-}
-@media (max-width: 900px), (max-height: 100px){
-	.logotext{
-    display: none;
-	}
 }
 .id-main{
 	font-family: 'Roboto', sans-serif;
     font-weight: 500;
 	letter-spacing: 15px;
-	transform: skewY(3deg);
 }
-.content{
-	height: 70%;
+.menu{
+	position: fixed;
+	top: 20%;
+	width: 70%;
+	right: 5%;
+	color: darkgrey;
+	z-index: 7;
+	letter-spacing: 5px;
+	font-size: 15px;
+}
+.main-list{
+	list-style-type: none;
+	float: right;
+	padding: 0;
+	margin: 0;
+}
+.menuelement{
+	display: inline-block;
+	margin-right: 20px;
+}
+a{
+	text-decoration: none;
+}
+.underline{
+	transition: color .3s;
+	color: darkgrey;
+}
+.underline:hover{
+	color: black;
+}
+.underline::after{
+	content: '';
+	display: block;
+	width: 0;
+	height: 2px;
+	background: black;
+	transition: width .3s;
+}
+.underline:hover::after{
+	width: 95%;
+}
+.section{
+	width: 100%;
 }
 .bottom{
-	position: absolute;
-	bottom: 0;
-	height: 12%;
+	position: fixed;
+	bottom: -1%;
+	height: 15%;
 	width: 100%;
 	background: black;
 	color: white;
 	transform:skewY(-3deg);
-	z-index: 2;
+	z-index: 5;
 }
 .bottom-hide{
-	position: absolute;
-	bottom: 0;
+	position: fixed;
+	bottom: -1%;
 	background: black;
 	height: 7%;
 	width: 100%;
-	z-index: 1;
+	z-index: 4;
 }
-
 h1{ 
     font-size: 50px; 
 }
-
-@media (max-width: 2000px) {
+.bottomtext{
+	position: fixed;
+	transform: skewY(3deg);
+	left: 30px;
+	padding-top: 1%;
+	z-index: 7;
+}
+.rights{
+	font-size: 10px;
+}
+@media (max-width: 900px), (max-height: 100px){
+	.logotext{
+    display: none;
+	}
+	.menu{
+		display: none;
+	}
+}
+@media (max-width: 2000px){
 	h1{ 
       font-size: 40px; 
    }
 }
-@media (max-width: 1400px) {
+@media (max-width: 1400px){
 	h1{ 
       font-size: 30px; 
    }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1100px){
 	h1{
-      font-size: 20px; 
-   }
+		font-size: 20px; 
+	}
+	.logotext{
+		padding-top: 2%;
+	}
+	.id-main{
+		letter-spacing: 10px;
+	}
+}
+
+@media (max-height: 600px){
+	.top{
+		padding-top: 10px;
+		padding-left: 10px;
+	}
+	.logoimage{
+		width: 70px;
+	}
+	.logo{
+		width: 60px;
+	}
+	.id-main{
+		letter-spacing: 10px;
+	}
+	.logotext{
+		padding-top: 1.5%;
+	}
+	h1{
+		font-size: 20px; 
+	}
+}
+
+@media (max-height: 400px){
+	.top{
+		padding-top: 0px;
+		padding-left: 2px;
+	}
+	.logoimage{
+		width: 45px;
+	}
+	.logo{
+		width: 40px;
+	}
+	.logotext{
+		padding-top: 2%;
+	}
+	h1{
+		font-size: 10px;
+	}
+	.id-main{
+		letter-spacing: 5px;
+	}
 }
