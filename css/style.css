@@ -133,7 +133,7 @@ h1{
 	position: fixed;
 	transform: skewY(3deg);
 	left: 30px;
-	padding-top: 1%;
+	padding-top: 2%;
 	z-index: 7;
 }
 .rights{
@@ -174,9 +174,9 @@ h1{
 }
 .minitext{
     font-size: 20px;
-    letter-spacing: 5px;
+    letter-spacing: 3px;
     line-height: 30px;
-    font-weight: 400;
+    font-weight: 300;
 }
 .divtext{
     position: absolute;
