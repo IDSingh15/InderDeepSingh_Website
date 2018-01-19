@@ -74,12 +74,24 @@ body{
 a{
 	text-decoration: none;
 }
+a.pg0{
+    color: white;
+}
+a.pg0:active{
+    color: white;
+}
+a.pg0:visited{
+    color: white;
+}
+a.pg0:link{
+    color: white;
+}
 .underline{
 	transition: color .3s;
 	color: darkgrey;
 }
 .underline:hover{
-	color: black;
+	color: black !important;
 }
 .underline::after{
 	content: '';
@@ -216,17 +228,17 @@ h1{
 }
 .rightindicators{
 	position: fixed;
-	width: 1%;
+	width: 10px;
 	right: 8%;
 	top: 40%;
 }
 .pageindicator{
-	margin: 2px;
+	margin: 0px;
 }
 .dot{
 	height: 6px;
   	width: 6px;
-	background-color: #bbb;
+	background-color: darkgrey;
 	border-radius: 50%;
 	display: inline-block;
 }
