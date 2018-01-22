@@ -170,7 +170,7 @@ $(document).ready(function(){
 
 $(document).ready(function(){
 	
-	$(window).bind('DOMMouseScroll', function(event){
+	$(window).bind('mousewheel DOMMouseScroll', function(event){
 		
     	if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
         	// scroll up
