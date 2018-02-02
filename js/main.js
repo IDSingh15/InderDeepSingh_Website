@@ -35,6 +35,7 @@ $(document).ready(function(){                                                   
     $("#page0 > .homeimg").animate({opacity:'1', right:'0px'}, "slow");
 	$("#page0 > .hometext").animate({opacity:'1', top:'40%'}, "slow");
 	$("#page1, #page2, #page3, #page4, #page5").css("display", "none");
+    $(window).on('mousewheel DOMMouseScroll', scrollHandler);
 });
 
 $(document).ready(function(){                                                           //On click page 0
@@ -50,7 +51,10 @@ $(document).ready(function(){                                                   
         $("#indi0").css("background-color", "black");
         $("#page0 > .hometext").animate({opacity:'1', top:'40%'}, "slow");
         $("#page0 > .homeimg").animate({opacity:'1', right:'0px'}, "slow");
-		$("#page1, #page2, #page3, #page4, #page5").css("display", "none");
+		$("#page1, #page2, #page3, #page4, #page5").delay(300).queue(function (next){ 
+				$(this).css("display", "none"); 
+				next();
+			});
     });
 	
 	
@@ -74,7 +78,10 @@ $(document).ready(function(){
         $("#indi1").css("background-color", "black");
         $("#page1 > .divtext").animate({opacity:'1', top:'40%'}, "slow");
         $("#page1 > .divimg").animate({opacity:'1', right:'20%'}, "slow");
-		$("#page0, #page2, #page3, #page4, #page5").css("display", "none");
+		$("#page0, #page2, #page3, #page4, #page5").delay(300).queue(function (next){ 
+				$(this).css("display", "none"); 
+				next();
+			});
 			
     });
 	
@@ -98,7 +105,10 @@ $(document).ready(function(){
         $("#indi2").css("background-color", "black");
         $("#page2 > .divtext").animate({opacity:'1', top:'40%'}, "slow");
         $("#page2 > .divimg").animate({opacity:'1', right:'20%'}, "slow");
-		$("#page0, #page1, #page3, #page4, #page5").css("display", "none");
+		$("#page0, #page1, #page3, #page4, #page5").delay(300).queue(function (next){ 
+				$(this).css("display", "none"); 
+				next();
+			});
     });
 	
 });
@@ -119,7 +129,10 @@ $(document).ready(function(){
         $("#indi3").css("background-color", "black");
         $("#page3 > .divtext").animate({opacity:'1', top:'40%'}, "slow");
         $("#page3 > .divimg").animate({opacity:'1', right:'20%'}, "slow");
-		$("#page0, #page1, #page2, #page4, #page5").css("display", "none");
+		$("#page0, #page1, #page2, #page4, #page5").delay(300).queue(function (next){ 
+				$(this).css("display", "none"); 
+				next();
+			});
     });
 	
 });
@@ -140,7 +153,10 @@ $(document).ready(function(){
         $("#indi4").css("background-color", "black");
         $("#page4 > .divtext").animate({opacity:'1', top:'40%'}, "slow");
         $("#page4 > .homeimg").animate({opacity:'1', right:'0px'}, "slow");
-		$("#page0, #page1, #page2, #page3, #page5").css("display", "none");
+		$("#page0, #page1, #page2, #page3, #page5").delay(300).queue(function (next){ 
+				$(this).css("display", "none"); 
+				next();
+			});
     });
 	
 });
@@ -160,20 +176,23 @@ $(document).ready(function(){
         $(".pg5").css("color", "black");
         $("#indi5").css("background-color", "black");
         $("#page5 > .divtext").animate({opacity:'1', top:'40%'}, "slow");
-		$("#page0, #page1, #page2, #page3, #page4").css("display", "none");
+		$("#page0, #page1, #page2, #page3, #page4").delay(300).queue(function (next){ 
+				$(this).css("display", "none"); 
+				next();
+			});
     });
 	
 });
 
 //SCROLL ANIMATIONS
 
-
-$(document).ready(function(){
-	
-	$(window).bind('mousewheel DOMMouseScroll', function(event){
-		
-    	if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
-        	// scroll up
+function scrollHandler(event) {
+    
+    $(window).off('mousewheel DOMMouseScroll');
+    
+    if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
+        	
+            // scroll up
 			if ($('#page1').css('display') !== 'none'){
 			$(".homeimg, .hometext, .divimg, .divtext, .section, #page1, .dot, .underline, .pg1, #indi1, #page1 > .divtext, #page1 > .divimg").clearQueue().stop();
         	$(".homeimg").animate({opacity:'0', right:'-10%'}, "fast");
@@ -276,7 +295,7 @@ $(document).ready(function(){
 				next();
 			});
 			}
-			
+            
     	}
 							
     	else {
@@ -384,13 +403,12 @@ $(document).ready(function(){
 				$(this).css("display", "none"); 
 				next();
 			});
-			}
-			
-			
-			}
-	});
-	
-});
+        }
+    }
+    setTimeout(function() {
+        $(window).on('mousewheel DOMMouseScroll', scrollHandler);  
+    }, 1600);
+}
 
 
 
